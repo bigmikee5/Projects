@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UPLOAD IMAGE</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        background: #333;
+      }
+      /* HEADER SECTION */
+      header {
+        width: 100%;
+        background: #499eea;
+      }
+
+      header .menu {
+        display: flex;
+        justify-content: space-between;
+      }
+      header .logo {
+        font-size: 35px;
+      }
+      header ul {
+        display: flex;
+        gap: 12px;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+      header ul li {
+        list-style: none;
+        font-size: 20px;
+      }
+      header ul li a {
+        text-decoration: none;
+        color: #fff;
+      }
+      header ul li a:hover {
+        color: black;
+        transition: ease-in-out 1s;
+      }
+
+      .container {
+        background-color: #fff;
+        width: 400px;
+        position: absolute;
+        top: 150px;
+        left: 300px;
+        border-radius: 5px;
+      }
+      .container h2 {
+        text-align: center;
+        margin-top: 19px;
+      }
+      .container P {
+        text-align: center;
+      }
+      #image {
+        width: 180px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        margin: 20px 115px;
+      }
+      label {
+        background: #e3362c;
+        margin: 10px auto;
+        display: block;
+        padding: 12px;
+        width: 200px;
+        text-align: center;
+        border-radius: 5px;
+        color: #fff;
+      }
+      input {
+        display: none;
+      }
+      .hamburg,
+      .hamburg-close {
+        display: none;
+      }
+      button {
+        background: #e3362c;
+        color: #fff;
+        padding: 10px;
+        border: 0;
+        outline: 0;
+        border-radius: 5px;
+        font-size: 17px;
+        position: absolute;
+        top: 33rem;
+        left: 19rem;
+      }
+
+      @media screen and (max-width: 480px) {
+        body {
+          background-color: rgb(18, 18, 55);
+          width: 400px;
+          height: fit-content;
+          overflow: hidden;
+        }
+
+        header {
+          width: 425px;
+          background: white;
+        }
+
+        header .menu {
+          display: flex;
+          justify-content: space-between;
+        }
+        header .logo {
+          font-size: 35px;
+          color: black;
+        }
+        header ul {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-right: 10px;
+          margin: 50px;
+          z-index: 999;
+        }
+        .menu-sections {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          height: 100vh;
+          transition: 0.5s;
+          z-index: 100;
+          background: #7f8183;
+          filter: blur(0.5px);
+          z-index: 999;
+        }
+        .hamburg-close {
+          display: block;
+          margin: 10px;
+        }
+        .hamburg {
+          display: block;
+          position: absolute;
+          left: 23.5rem;
+          top: 0.5rem;
+          height: 32px;
+          overflow: hidden;
+        }
+        .show {
+          right: 0;
+        }
+        header ul li {
+          list-style: none;
+          font-size: 15px;
+        }
+
+        .container {
+          background-color: #fff;
+          width: 350px;
+          position: absolute;
+          top: 150px;
+          left: 40px;
+          border-radius: 5px;
+        }
+        .container h2 {
+          text-align: center;
+          margin-top: 19px;
+        }
+        .container P {
+          text-align: center;
+        }
+        #image {
+          width: 180px;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          margin: 20px 80px;
+        }
+        label {
+          background: #e3362c;
+          margin: 10px auto;
+          display: block;
+          padding: 12px;
+          width: 200px;
+          text-align: center;
+          border-radius: 5px;
+          color: #fff;
+        }
+        input {
+          display: none;
+        }
+
+        button {
+          background: #e3362c;
+          color: #fff;
+          padding: 10px;
+          border: 0;
+          outline: 0;
+          border-radius: 5px;
+          font-size: 17px;
+          position: absolute;
+          top: 33rem;
+          left: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+        <div class="logo">Bigmike</div>
+        <img src="../../icons8-menu-50.png" alt="" class="hamburg" />
+        <div class="menu-sections">
+          <img src="../../icons8-macos-close-30.png" class="hamburg-close" />
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../Registration/Registration.html">Register</a></li>
+            <li><a href="../Login/login.html">Login</a></li>
+            <li>
+              <a href="../PasswordGenerator/PwGenerator.html"
+                >Generate Password</a
+              >
+            </li>
+            <li><a href="../UploadImage/upload.html">Upload Image</a></li>
+            <li>
+              <a href="../QRcodeGenerator/QRcode.html">Generate QR Code</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <h2>Upload Image</h2>
+        <p>@username</p>
+        <img src="./profile.png" id="image" />
+        <label for="input-file">Upload Image</label>
+        <input
+          type="file"
+          accept="image/png, image/jpeg, image/jpg"
+          id="input-file"
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </main>
+    <script>
+      const imageSource = document.getElementById("image");
+      const inputFile = document.getElementById("input-file");
+      inputFile.onchange = function () {
+        imageSource.src = URL.createObjectURL(inputFile.files[0]);
+      };
+
+      // show moble menu
+
+      const navMenu = document.querySelector(".menu-sections"),
+        toggleMenu = document.querySelector(".hamburg"),
+        closeMenu = document.querySelector(".hamburg-close"),
+        navLink = document.querySelectorAll(".menu-sections");
+
+      //  SHOW
+      toggleMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+
+      //  HIDDEN
+      toggleMenu.addEventListener("click", () => {
+        closeMenu.classList.remove("show");
+      });
+
+      function linkAction() {
+        navMenu.classList.remove("show");
+      }
+      navLink.forEach((n) => n.addEventListener("click", linkAction));
+    </script>
+  </body>
+</html>

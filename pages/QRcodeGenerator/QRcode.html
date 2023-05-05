@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR CODE GENERATOR</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        background: rgb(4, 4, 19);
+        color: #fff;
+      }
+      /* HEADER SECTION */
+      header {
+        width: 100%;
+        background: #499eea;
+      }
+
+      header .menu {
+        display: flex;
+        justify-content: space-between;
+      }
+      header .logo {
+        font-size: 35px;
+      }
+      header ul {
+        display: flex;
+        gap: 12px;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+      header ul li {
+        list-style: none;
+        font-size: 20px;
+      }
+      header ul li a {
+        text-decoration: none;
+        color: #fff;
+      }
+      header ul li a:hover {
+        color: black;
+        transition: ease-in-out 1s;
+      }
+
+      .container {
+        width: 400px;
+        background: #ccc;
+        margin: 100px auto;
+        padding: 10px 0;
+      }
+      .container h4 {
+        text-align: center;
+        color: black;
+      }
+      .container .inputDiv {
+        width: 90%;
+        background: #fff;
+        border-radius: 2px;
+        padding: 5px;
+        margin: 10px;
+        border: 1.8px solid #499eea;
+      }
+      .container input {
+        border: 0;
+        outline: 0;
+        background: transparent;
+        font-size: 15px;
+        padding: 15px;
+      }
+      .qr-container {
+        width: 200px;
+        border-radius: 5px;
+        max-height: 0;
+        transition: max-height 1s;
+        overflow: hidden;
+      }
+      .qr-container img {
+        width: 100%;
+        padding: 10px;
+      }
+      .show-img {
+        max-height: 300px;
+        margin: 10px auto;
+        border: 1px solid #d1d1d1;
+      }
+      .error {
+        animation: shake 0.1s linear 10;
+      }
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-2px);
+        }
+        50% {
+          transform: translateX(0);
+        }
+        75% {
+          transform: translateX(-2px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      #btn {
+        width: 359px;
+        margin: 10px;
+        padding: 10px;
+        background: #499eea;
+        border: 0;
+        outline: 0;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 3px;
+      }
+      .hamburg,
+      .hamburg-close {
+        display: none;
+      }
+
+      @media screen and (max-width: 480px) {
+        body {
+          background-color: rgb(18, 18, 55);
+          width: 400px;
+          height: fit-content;
+          overflow: hidden;
+        }
+
+        header {
+          width: 425px;
+          background: white;
+        }
+
+        header .menu {
+          display: flex;
+          justify-content: space-between;
+        }
+        header .logo {
+          font-size: 35px;
+          color: black;
+        }
+        header ul {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-right: 10px;
+          margin: 50px;
+          z-index: 999;
+        }
+        .menu-sections {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          height: 100vh;
+          transition: 0.5s;
+          z-index: 100;
+          background: #7f8183;
+          filter: blur(0.5px);
+          z-index: 999;
+        }
+        .hamburg-close {
+          display: block;
+          margin: 10px;
+        }
+        .hamburg {
+          display: block;
+          position: absolute;
+          left: 23.5rem;
+          top: 0.5rem;
+          height: 32px;
+          overflow: hidden;
+        }
+        .show {
+          right: 0;
+        }
+        header ul li {
+          list-style: none;
+          font-size: 15px;
+        }
+
+        .container {
+          width: 350px;
+          background: #ccc;
+          margin: 100px 40px;
+          padding: 10px 0;
+        }
+
+        #btn {
+          width: 316px;
+          margin: 10px;
+          padding: 10px;
+          background: #499eea;
+          border: 0;
+          outline: 0;
+          color: #fff;
+          font-size: 16px;
+          border-radius: 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+        <div class="logo">Bigmike</div>
+        <img src="../../icons8-menu-50.png" alt="" class="hamburg" />
+        <div class="menu-sections">
+          <img
+            src="../../icons8-macos-close-30.png"
+            alt=""
+            class="hamburg-close"
+          />
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../Registration/Registration.html">Register</a></li>
+            <li><a href="../Login/login.html">Login</a></li>
+            <li>
+              <a href="../PasswordGenerator/PwGenerator.html"
+                >Generate Password</a
+              >
+            </li>
+            <li><a href="../UploadImage/upload.html">Upload Image</a></li>
+            <li>
+              <a href="../QRcodeGenerator/QRcode.html">Generate QR Code</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h4>Enter Text or URL</h4>
+        <div class="inputDiv">
+          <input type="text" id="password" placeholder="Text or URL" />
+        </div>
+        <div class="qr-container">
+          <img src="#" id="image" />
+        </div>
+        <button id="btn" onclick="generateQR()">Generate QR Code</button>
+      </div>
+    </main>
+
+    <script>
+      let qrImageContainer = document.querySelector(".qr-container");
+      let qrImage = document.querySelector("#image");
+      let inputText = document.querySelector("#password");
+
+      function generateQR() {
+        if (inputText.value.length > 0) {
+          qrImage.src =
+            "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+            inputText.value;
+          qrImageContainer.classList.add("show-img");
+        } else {
+          inputText.classList.add("error");
+          setTimeout(() => {
+            inputText.classList.remove("error");
+          }, 1000);
+        }
+      }
+
+      // show moble menu
+
+      const navMenu = document.querySelector(".menu-sections"),
+        toggleMenu = document.querySelector(".hamburg"),
+        closeMenu = document.querySelector(".hamburg-close"),
+        navLink = document.querySelectorAll(".menu-sections");
+
+      //  SHOW
+      toggleMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+
+      //  HIDDEN
+      toggleMenu.addEventListener("click", () => {
+        closeMenu.classList.remove("show");
+      });
+
+      function linkAction() {
+        navMenu.classList.remove("show");
+      }
+      navLink.forEach((n) => n.addEventListener("click", linkAction));
+    </script>
+  </body>
+</html>

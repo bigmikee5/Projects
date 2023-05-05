@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGIN</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      header {
+        width: 100%;
+        height: 50px;
+        background: #060a0e;
+      }
+
+      header .menu {
+        display: flex;
+        justify-content: space-between;
+      }
+      header .logo {
+        font-size: 35px;
+        margin-top: 10px;
+        color: #fff;
+      }
+      header ul {
+        display: flex;
+        gap: 12px;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+      header ul li {
+        list-style: none;
+        font-size: 20px;
+      }
+      header ul li a {
+        text-decoration: none;
+        color: #fff;
+      }
+      header ul li a:hover {
+        color: orange;
+        transition: ease-in-out 1s;
+      }
+      .hamburger,
+      .harmburg-close {
+        display: none;
+      }
+
+      body {
+        background-image: url(./bg.avif);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .container {
+        position: absolute;
+        top: 15rem;
+        left: 30rem;
+        width: 90%;
+        max-width: 500px;
+        background: #1f2933;
+        color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+      }
+      .container h1 {
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .container .divInput {
+        padding: 10px;
+        margin: 15px;
+        width: 90%;
+        background: #ccc;
+        border-radius: 5px;
+      }
+      .divInput input {
+        width: 90%;
+        padding: 5px;
+        border: 0;
+        outline: 0;
+        background: transparent;
+      }
+      .eye {
+        position: absolute;
+      }
+      #show {
+        display: none;
+      }
+      #btn {
+        margin: 15px;
+        padding: 10px;
+        width: 90%;
+        border: 0;
+        outline: 0;
+      }
+      .container p {
+        text-align: center;
+        margin-top: 10px;
+      }
+      .container p a {
+        text-decoration: none;
+        color: blue;
+      }
+      .hamburg,
+      .hamburg-close {
+        display: none;
+      }
+
+      @media screen and (max-width: 480px) {
+        body {
+          background-color: rgb(18, 18, 55);
+          width: 400px;
+          height: fit-content;
+          overflow: hidden;
+        }
+        .home_container {
+          margin-top: 10rem;
+          margin-left: 4rem;
+          margin-bottom: 0;
+        }
+        .home_container h1 {
+          font-size: 36px;
+        }
+        .home_container h1 span {
+          font-size: 28px;
+        }
+        p {
+          width: 340px;
+        }
+        .home_container .description {
+          margin-left: 25px;
+        }
+
+        header {
+          width: 425px;
+          background: white;
+        }
+
+        header .menu {
+          display: flex;
+          justify-content: space-between;
+        }
+        header .logo {
+          font-size: 35px;
+          color: black;
+        }
+        header ul {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-right: 10px;
+          margin: 50px;
+          z-index: 999;
+        }
+        .menu-sections {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          height: 100vh;
+          transition: 0.5s;
+          z-index: 100;
+          background: #7f8183;
+          filter: blur(0.5px);
+          z-index: 999;
+        }
+        .hamburg-close {
+          display: block;
+          margin: 10px;
+        }
+        .hamburg {
+          display: block;
+          position: absolute;
+          left: 23.5rem;
+          top: 0.5rem;
+          height: 32px;
+          overflow: hidden;
+        }
+        .show {
+          right: 0;
+        }
+        header ul li {
+          list-style: none;
+          font-size: 15px;
+        }
+
+        body {
+          background-image: none !important;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+        .container {
+          position: absolute;
+          top: 10rem;
+          left: 1rem;
+          width: 90%;
+          max-width: 500px;
+          background: #1f2933;
+          color: #fff;
+          padding: 15px;
+          border-radius: 5px;
+        }
+        .container .divInput {
+          padding: 10px;
+          margin: 15px;
+          width: 88%;
+          background: #ccc;
+          border-radius: 5px;
+        }
+        .divInput input {
+          width: 88%;
+          padding: 5px;
+          border: 0;
+          outline: 0;
+          background: transparent;
+        }
+        #btn {
+          width: 88%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+        <div class="logo">Bigmike</div>
+        <img src="../../icons8-menu-50.png" class="hamburg" />
+        <div class="menu-sections">
+          <img src="../../icons8-macos-close-30.png" class="hamburg-close" />
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+
+            <li>
+              <a href="../../pages/Registration/Registration.html">Register</a>
+            </li>
+            <li><a href="../../pages/Login/login.html">Login</a></li>
+            <li>
+              <a href="../../pages/PasswordGenerator/PwGenerator.html"
+                >Generate Password</a
+              >
+            </li>
+            <li>
+              <a href="../../pages/UploadImage/upload.html">Upload Image</a>
+            </li>
+            <li>
+              <a href="../../pages/QRcodeGenerator/QRcode.html"
+                >Generate QR Code</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h1>LOGIN HERE</h1>
+        <div class="divInput">
+          <i class="fa fa-envelope-o"></i>
+          <input type="email" placeholder="Email Id" id="email" />
+        </div>
+        <div class="divInput">
+          <i class="fa fa-key"></i>
+          <input type="password" placeholder="Password" id="password" />
+          <span class="eye" onclick="hideShow()">
+            <i class="fa fa-eye" id="show"></i>
+            <i class="fa fa-eye-slash" id="hide"></i>
+          </span>
+        </div>
+        <button id="btn" type="submit">LOGIN</button>
+        <p>
+          No account yet?
+          <a href="../Registration/Registration.html">Register here</a>
+        </p>
+      </div>
+    </main>
+
+    <script>
+      // show/hide password
+
+      function hideShow() {
+        const passwordInput = document.querySelector("#password");
+        const showPassword = document.querySelector("#show");
+        const hidePassword = document.querySelector("#hide");
+
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          showPassword.style.display = "block";
+          hidePassword.style.display = "none";
+        } else {
+          passwordInput.type = "password";
+          showPassword.style.display = "none";
+          hidePassword.style.display = "block";
+        }
+      }
+
+      // show moble menu
+
+      const navMenu = document.querySelector(".menu-sections"),
+        toggleMenu = document.querySelector(".hamburg"),
+        closeMenu = document.querySelector(".hamburg-close"),
+        navLink = document.querySelectorAll(".menu-sections");
+
+      //  SHOW
+      toggleMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+
+      //  HIDDEN
+      toggleMenu.addEventListener("click", () => {
+        closeMenu.classList.remove("show");
+      });
+
+      function linkAction() {
+        navMenu.classList.remove("show");
+      }
+      navLink.forEach((n) => n.addEventListener("click", linkAction));
+    </script>
+  </body>
+</html>

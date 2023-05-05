@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEEKLY REVIEW</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+        <div class="logo">Bigmike</div>
+        <img src="./icons8-menu-50.png" class="hamburger" />
+
+        <div class="menu-sections">
+          <img
+            src="./icons8-macos-close-30.png"
+            alt=""
+            class="harmburg-close"
+          />
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li>
+              <a href="./pages/Registration/Registration.html">Register</a>
+            </li>
+            <li><a href="./pages/Login/login.html">Login</a></li>
+            <li>
+              <a href="./pages/PasswordGenerator/PwGenerator.html"
+                >Generate Password</a
+              >
+            </li>
+            <li><a href="./pages/UploadImage/upload.html">Upload Image</a></li>
+            <li>
+              <a href="./pages/QRcodeGenerator/QRcode.html">Generate QR Code</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- MAIN CONTENTS -->
+
+    <main>
+      <!-- HOME -->
+      <section id="home">
+        <div class="home_container">
+          <h1>
+            Welcome! <br />
+            <span class="greeting">Thank you for checking in.</span>
+          </h1>
+          <p>
+            This webpage contains sections to all my projects
+            <span class="description"
+              >done during the week of my birthday.</span
+            >
+          </p>
+        </div>
+      </section>
+      <!-- END OF HOME SECTION -->
+    </main>
+
+    <script>
+      const navMenu = document.querySelector(".menu-sections"),
+        toggleMenu = document.querySelector(".hamburger"),
+        closeMenu = document.querySelector(".hamburg-close"),
+        navLink = document.querySelectorAll(".menu-sections");
+
+      //  SHOW
+      toggleMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+
+      //  HIDDEN
+      toggleMenu.addEventListener("click", () => {
+        closeMenu.classList.remove("show");
+      });
+
+      function linkAction() {
+        navMenu.classList.remove("show");
+      }
+      navLink.forEach((n) => n.addEventListener("click", linkAction));
+    </script>
+  </body>
+</html>
